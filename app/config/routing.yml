@@ -1,4 +1,4 @@
 wind_bookofdreams:
     resource: "@WindBookofdreamsBundle/Resources/config/routing.yml"
-    prefix:   /bookofdreams
+    prefix:   /admin/bookofdreams
 
