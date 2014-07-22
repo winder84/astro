@@ -1,0 +1,7 @@
+parameters:
+#    wind_bookofdreams.example.class: Wind\BookofdreamsBundle\Example
+
+services:
+#    wind_bookofdreams.example:
+#        class: %wind_bookofdreams.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

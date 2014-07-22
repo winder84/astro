@@ -1,0 +1,87 @@
+wind_bookofdreams_homepage:
+    path:     /
+    defaults: { _controller: WindBookofdreamsBundle:Default:index }
+
+bookofdreams_word:
+    path:     /word
+    defaults: { _controller: WindBookofdreamsBundle:Word:index }
+
+bookofdreams_word_new:
+    path:     /word/new
+    defaults: { _controller: WindBookofdreamsBundle:Word:new }
+
+bookofdreams_word_show:
+    path:     /word/show/{id}
+    defaults: { _controller: WindBookofdreamsBundle:Word:show }
+
+bookofdreams_word_edit:
+    path:     /word/edit/{id}
+    defaults: { _controller: WindBookofdreamsBundle:Word:edit }
+
+bookofdreams_word_create:
+    path:     /word/create
+    defaults: { _controller: WindBookofdreamsBundle:Word:create }
+
+bookofdreams_word_delete:
+    path:     /word/delete/{id}
+    defaults: { _controller: WindBookofdreamsBundle:Word:delete }
+
+bookofdreams_word_update:
+    path:     /word/update/{id}
+    defaults: { _controller: WindBookofdreamsBundle:Word:update }
+
+bookofdreams_tag:
+    path:     /tag
+    defaults: { _controller: WindBookofdreamsBundle:Tag:index }
+
+bookofdreams_tag_new:
+    path:     /tag/new
+    defaults: { _controller: WindBookofdreamsBundle:Tag:new }
+
+bookofdreams_tag_show:
+    path:     /tag/show/{id}
+    defaults: { _controller: WindBookofdreamsBundle:Tag:show }
+
+bookofdreams_tag_edit:
+    path:     /tag/edit/{id}
+    defaults: { _controller: WindBookofdreamsBundle:Tag:edit }
+
+bookofdreams_tag_create:
+    path:     /tag/create
+    defaults: { _controller: WindBookofdreamsBundle:Tag:create }
+
+bookofdreams_tag_delete:
+    path:     /tag/delete/{id}
+    defaults: { _controller: WindBookofdreamsBundle:Tag:delete }
+
+bookofdreams_tag_update:
+    path:     /tag/update/{id}
+    defaults: { _controller: WindBookofdreamsBundle:Tag:update }
+
+bookofdreams_text:
+    path:     /text
+    defaults: { _controller: WindBookofdreamsBundle:Text:index }
+
+bookofdreams_text_new:
+    path:     /text/new
+    defaults: { _controller: WindBookofdreamsBundle:Text:new }
+
+bookofdreams_text_show:
+    path:     /text/show/{id}
+    defaults: { _controller: WindBookofdreamsBundle:Text:show }
+
+bookofdreams_text_edit:
+    path:     /text/edit/{id}
+    defaults: { _controller: WindBookofdreamsBundle:Text:edit }
+
+bookofdreams_text_create:
+    path:     /text/create
+    defaults: { _controller: WindBookofdreamsBundle:Text:create }
+
+bookofdreams_text_delete:
+    path:     /text/delete/{id}
+    defaults: { _controller: WindBookofdreamsBundle:Text:delete }
+
+bookofdreams_text_update:
+    path:     /text/update/{id}
+    defaults: { _controller: WindBookofdreamsBundle:Text:update }
