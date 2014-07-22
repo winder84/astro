@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>{% block title %}Welcome!{% endblock %}</title>
+	{% block stylesheets %}{% endblock %}
+	<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+	<!-- Bootstrap -->
+	<script src="{{ asset('bundles/windbookofdreams/js/jquery.min.js') }}"></script>
+	<link href="{{ asset('bundles/windbookofdreams/css/bootstrap.css') }}" rel="stylesheet" media="screen">
+</head>
+<body>
+{% block body %}{% endblock %}
+<!-- Include all JavaScripts, compiled by Assetic -->
+<script src="{{ asset('bundles/windbookofdreams/js/bootstrap.js') }}"></script>
+</body>
+</html>
