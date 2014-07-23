@@ -16,16 +16,10 @@
             <tr>
                 <td>{{ entity.id }}</td>
                 <td><a class="btn btn-link" href="{{ path('bookofdreams_word_show', { 'id': entity.id }) }}">{{ entity.name }}</a></td>
-                <td>
-                <ul>
-                    <li style="display: inline-block;list-style: none;">
-                        <a class="btn btn-default" href="{{ path('bookofdreams_word_show', { 'id': entity.id }) }}">Показать</a>
-                    </li>
-                    <li style="display: inline-block;list-style: none;">
-                        <a class="btn btn-default" href="{{ path('bookofdreams_word_edit', { 'id': entity.id }) }}">Редактировать</a>
-                    </li>
-                </ul>
-                </td>
+				<td>
+					<a style="display: inline-block; margin: 2px;" class="btn btn-default btn-sm" href="{{ path('bookofdreams_word_show', { 'id': entity.id }) }}">Показать</a>
+					<a style="display: inline-block; margin: 2px;" class="btn btn-default btn-sm" href="{{ path('bookofdreams_word_edit', { 'id': entity.id }) }}">Редактировать</a>
+				</td>
             </tr>
         {% endfor %}
         </tbody>
