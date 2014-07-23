@@ -33,6 +33,7 @@ class TextController extends Controller
 
         return array(
             'entities' => $entities,
+            'filter' => '',
         );
     }
 
@@ -52,6 +53,7 @@ class TextController extends Controller
 
 		return array(
 			'entities' => $entities,
+			'filter' => $tag->getName()
 		);
 	}
 
@@ -71,6 +73,7 @@ class TextController extends Controller
 
 		return array(
 			'entities' => $entities,
+			'filter' => $word->getName()
 		);
 	}
 
