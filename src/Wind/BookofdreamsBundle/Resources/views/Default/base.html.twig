@@ -15,9 +15,9 @@
 		Сонник
 	</h3>
 	<div class="table" style="margin-top: 20px;">
-		<a class="btn btn-default btn-sm" href="{{ path('bookofdreams_word') }}">Слова</a>
-		<a class="btn btn-default btn-sm" href="{{ path('bookofdreams_tag') }}">Тэги</a>
-		<a class="btn btn-default btn-sm" href="{{ path('bookofdreams_text') }}">Тексты</a>
+		<a class="btn btn-default btn-sm {% if 'bookofdreams/word' in app.request.uri %}active{% endif %}" href="{{ path('bookofdreams_word') }}">Слова</a>
+		<a class="btn btn-default btn-sm {% if 'bookofdreams/tag' in app.request.uri %}active{% endif %}" href="{{ path('bookofdreams_tag') }}">Тэги</a>
+		<a class="btn btn-default btn-sm {% if 'bookofdreams/text' in app.request.uri %}active{% endif %}" href="{{ path('bookofdreams_text') }}">Тексты</a>
 	</div>
 	{% block body %}{% endblock %}
 </div>

@@ -6,7 +6,7 @@
 		<h4 style="padding: 5px;" class="bg-warning">Фильтр по "{{ filter }}"</h4>
 	{% endif %}
 
-	<a class="btn btn-lg btn-success" style="margin: 10px 0;" href="{{ path('bookofdreams_text_new') }}">
+	<a class="btn btn-success btn-block" style="margin: 10px 0;" href="{{ path('bookofdreams_text_new') }}">
 		Добавить
 	</a>
     <table class="table table-bordered table-striped">
@@ -46,7 +46,7 @@
         {% endfor %}
         </tbody>
     </table>
-	<a class="btn btn-lg btn-success" href="{{ path('bookofdreams_text_new') }}">
+	<a class="btn btn-success btn-block" href="{{ path('bookofdreams_text_new') }}">
 		Добавить
 	</a>
     {% endblock %}
