@@ -14,6 +14,14 @@
 				<th>Тэг:</th>
 				<td>{{ entity.name }}</td>
 			</tr>
+			<tr>
+				<th>Тексты:</th>
+				<td>
+					{% for text in entity.texts %}
+						<a class="btn btn-link" style="margin: 2px;" href="{{ path('bookofdreams_text_show', { 'id': text.id }) }}">{{ text.text|slice(0, 100) ~ '...' }}</a><br />
+					{% endfor %}
+				</td>
+			</tr>
 			</tbody>
 		</table>
 		<div class="col-10" style="margin-top: 10px;">
