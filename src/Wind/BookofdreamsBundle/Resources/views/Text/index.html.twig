@@ -3,7 +3,7 @@
 {% block body -%}
     <h1>Тексты</h1>
 	{% if filter is not empty %}
-		<h4 style="padding: 5px;" class="col-md-4 bg-warning">Фильтр по "{{ filter }}"</h4>
+		<h4 style="padding: 5px;" class="bg-warning">Фильтр по "{{ filter }}"</h4>
 	{% endif %}
 
 	<a class="btn btn-lg btn-success" style="margin: 10px 0;" href="{{ path('bookofdreams_text_new') }}">
