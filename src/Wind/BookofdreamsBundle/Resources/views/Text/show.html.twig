@@ -1,32 +1,49 @@
 {% extends 'WindBookofdreamsBundle:Default:base.html.twig' %}
 
 {% block body -%}
-    <h1>Text</h1>
 
-    <table class="record_properties">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
-                <th>Text</th>
-                <td>{{ entity.text }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('bookofdreams_text') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('bookofdreams_text_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+	<div class="container">
+		<h1></h1>
+		<table class="table table-bordered ">
+			<tbody>
+			<tr>
+				<th>Id:</th>
+				<td>{{ entity.id }}</td>
+			</tr>
+			<tr>
+				<th>Текст:</th>
+				<td>{{ entity.text }}</td>
+			</tr>
+			<tr>
+				<th>Слова:</th>
+				<td>
+					{% for word in entity.words %}
+						<a class="btn btn-info btn-xs" style="margin: 2px;" href="{{ path('bookofdreams_word_edit', { 'id': word.id }) }}">{{ word.name }}</a>
+					{% endfor %}
+				</td>
+			</tr>
+			<tr>
+				<th>Тэги:</th>
+				<td>
+					{% for tag in entity.tags %}
+						<a class="btn btn-info btn-xs" style="margin: 2px;" href="{{ path('bookofdreams_tag_edit', { 'id': tag.id }) }}">{{ tag.name }}</a>
+					{% endfor %}
+				</td>
+			</tr>
+			</tbody>
+		</table>
+		<div class="col-10" style="margin-top: 10px;">
+			{{ form_start(delete_form, {'attr': {'class': 'form-horizontal','style': 'width: 300px;'}}) }}
+			<a class="btn btn-info" href="{{ path('bookofdreams_text_edit', { 'id': entity.id }) }}">
+				Редактировать
+			</a>
+			{{ form_widget(delete_form.submit, {'attr': {'class': 'btn btn-danger'}}) }}
+			{{ form_end(delete_form) }}
+		</div>
+		<div class="col-10" style="margin-top: 10px;">
+			<a class="btn btn-info" href="{{ path('bookofdreams_text') }}">
+				Вернуться к списку
+			</a>
+		</div>
+	</div>
 {% endblock %}

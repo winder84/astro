@@ -6,6 +6,26 @@
                 <source>Delete</source>
                 <target>Удалить</target>
             </trans-unit>
+            <trans-unit id="2">
+                <source>Update</source>
+                <target>Обновить</target>
+            </trans-unit>
+            <trans-unit id="3">
+                <source>Create</source>
+                <target>Добавить</target>
+            </trans-unit>
+            <trans-unit id="4">
+                <source>Text</source>
+                <target>Текст</target>
+            </trans-unit>
+            <trans-unit id="5">
+                <source>Words</source>
+                <target>Слова</target>
+            </trans-unit>
+            <trans-unit id="6">
+                <source>Tags</source>
+                <target>Тэги</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

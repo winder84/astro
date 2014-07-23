@@ -8,6 +8,8 @@
             <tr>
                 <th>Id</th>
                 <th>Текст</th>
+                <th>Слова</th>
+                <th>Тэги</th>
                 <th>Действия</th>
             </tr>
         </thead>
@@ -15,7 +17,21 @@
         {% for entity in entities %}
             <tr>
                 <td>{{ entity.id }}</td>
-                <td><a class="btn btn-link" href="{{ path('bookofdreams_text_show', { 'id': entity.id }) }}">{{ entity.text }}</a></td>
+                <td>
+					<a class="btn btn-link" href="{{ path('bookofdreams_text_show', { 'id': entity.id }) }}" style="text-overflow: clip; max-width: 500px; white-space: normal;">
+						{{ entity.text }}
+					</a>
+				</td>
+				<td>
+					{% for word in entity.words %}
+						<a class="btn btn-info btn-xs" style="margin: 2px;" href="{{ path('bookofdreams_word_edit', { 'id': word.id }) }}">{{ word.name }}</a>
+					{% endfor %}
+				</td>
+				<td>
+					{% for tag in entity.tags %}
+					<a class="btn btn-info btn-xs" style="margin: 2px;" href="{{ path('bookofdreams_tag_edit', { 'id': tag.id }) }}">{{ tag.name }}</a>
+					{% endfor %}
+				</td>
                 <td>
                 <ul>
                     <li style="display: inline-block;list-style: none;">
@@ -30,11 +46,7 @@
         {% endfor %}
         </tbody>
     </table>
-        <ul>
-        <li style="display: inline-block;list-style: none;">
-            <a class="btn btn-lg btn-success" href="{{ path('bookofdreams_text_new') }}">
-                Добавить
-            </a>
-        </li>
-    </ul>
+	<a class="btn btn-lg btn-success" href="{{ path('bookofdreams_text_new') }}">
+		Добавить
+	</a>
     {% endblock %}

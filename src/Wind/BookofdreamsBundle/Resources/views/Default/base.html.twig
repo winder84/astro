@@ -11,6 +11,14 @@
 </head>
 <body>
 <div class="container">
+	<h3 class="bg-info text-center">
+		Сонник
+	</h3>
+	<div class="table" style="margin-top: 20px;">
+		<a class="btn btn-default btn-sm" href="{{ path('bookofdreams_word') }}">Слова</a>
+		<a class="btn btn-default btn-sm" href="{{ path('bookofdreams_tag') }}">Тэги</a>
+		<a class="btn btn-default btn-sm" href="{{ path('bookofdreams_text') }}">Тексты</a>
+	</div>
 	{% block body %}{% endblock %}
 </div>
 <!-- Include all JavaScripts, compiled by Assetic -->

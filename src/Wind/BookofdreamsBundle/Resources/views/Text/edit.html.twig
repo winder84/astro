@@ -1,16 +1,43 @@
 {% extends 'WindBookofdreamsBundle:Default:base.html.twig' %}
 
 {% block body -%}
-    <h1>Text edit</h1>
+	<div class="container">
+		<h1></h1>
+		{{ form_start(edit_form, {'attr': {'class': 'form-horizontal','style': 'width: 300px;'}}) }}
+		<div class="form-group">
+			<div class="col-10">
+				{{ form_label(edit_form.text) }}
+			</div>
+			<div class="col-10">
+				{{ form_widget(edit_form.text, {'attr': {'class': 'form-control','style': 'width: 600px; height: 200px; resize: none;'}}) }}
+			</div>
+			<div class="col-10">
+				{{ form_label(edit_form.words) }}
+			</div>
+			<div class="col-10">
+				{{ form_widget(edit_form.words, {'attr': {'class': 'form-control'}}) }}
+			</div>
+			<div class="col-10">
+				{{ form_label(edit_form.tags) }}
+			</div>
+			<div class="col-10">
+				{{ form_widget(edit_form.tags, {'attr': {'class': 'form-control'}}) }}
+			</div>
+		</div>
 
-    {{ form(edit_form) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('bookofdreams_text') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+		<div class="col-10" style="margin-top: 10px;">
+			{{ form_widget(edit_form.submit, {'attr': {'class': 'btn btn-success'}}) }}
+		</div>
+		{{ form_end(edit_form) }}
+		{{ form_start(delete_form, {'attr': {'class': 'form-horizontal','style': 'width: 300px;'}}) }}
+		<div class="col-10" style="margin-top: 10px;">
+			{{ form_widget(delete_form.submit, {'attr': {'class': 'btn btn-danger'}}) }}
+		</div>
+		{{ form_end(delete_form) }}
+		<div class="col-10" style="margin-top: 10px;">
+			<a class="btn btn-info" href="{{ path('bookofdreams_text') }}">
+				Вернуться к списку
+			</a>
+		</div>
+	</div>
 {% endblock %}
