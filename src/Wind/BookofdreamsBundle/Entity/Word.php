@@ -3,12 +3,14 @@
 namespace Wind\BookofdreamsBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Word
  *
  * @ORM\Table()
  * @ORM\Entity
+ * @UniqueEntity(fields={"name"}, message="Такое слово уже существует!")
  */
 class Word
 {
