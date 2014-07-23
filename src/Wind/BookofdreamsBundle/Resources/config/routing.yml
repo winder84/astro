@@ -85,3 +85,11 @@ bookofdreams_text_delete:
 bookofdreams_text_update:
     path:     /text/update/{id}
     defaults: { _controller: WindBookofdreamsBundle:Text:update }
+
+bookofdreams_text_by_tag:
+    path:     /text/tag/{id}
+    defaults: { _controller: WindBookofdreamsBundle:Text:listbytag }
+
+bookofdreams_text_by_word:
+    path:     /text/word/{id}
+    defaults: { _controller: WindBookofdreamsBundle:Text:listbyword }

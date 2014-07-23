@@ -35,6 +35,45 @@ class TextController extends Controller
             'entities' => $entities,
         );
     }
+
+	/**
+	 * Lists Text entities by Tag.
+	 *
+	 * @Route("/", name="bookofdreams_text")
+	 * @Method("GET")
+	 * @Template()
+	 */
+	public function listbytagAction($id)
+	{
+		$em = $this->getDoctrine()->getManager();
+
+		$tag = $em->getRepository('WindBookofdreamsBundle:Tag')->find($id);
+		$entities = $tag->getTexts();
+
+		return array(
+			'entities' => $entities,
+		);
+	}
+
+	/**
+	 * Lists Text entities by Word.
+	 *
+	 * @Route("/", name="bookofdreams_text")
+	 * @Method("GET")
+	 * @Template()
+	 */
+	public function listbywordAction($id)
+	{
+		$em = $this->getDoctrine()->getManager();
+
+		$word = $em->getRepository('WindBookofdreamsBundle:Word')->find($id);
+		$entities = $word->getTexts();
+
+		return array(
+			'entities' => $entities,
+		);
+	}
+
     /**
      * Creates a new Text entity.
      *

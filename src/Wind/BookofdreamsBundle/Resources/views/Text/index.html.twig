@@ -24,12 +24,12 @@
 				</td>
 				<td>
 					{% for word in entity.words %}
-						<a class="btn btn-info btn-xs" style="margin: 2px;" href="{{ path('bookofdreams_word_edit', { 'id': word.id }) }}">{{ word.name }}</a>
+						<a class="btn btn-info btn-xs" style="margin: 2px;" href="{{ path('bookofdreams_text_by_word', { 'id': word.id }) }}">{{ word.name }}</a>
 					{% endfor %}
 				</td>
 				<td>
 					{% for tag in entity.tags %}
-					<a class="btn btn-info btn-xs" style="margin: 2px;" href="{{ path('bookofdreams_tag_edit', { 'id': tag.id }) }}">{{ tag.name }}</a>
+						<a class="btn btn-info btn-xs" style="margin: 2px;" href="{{ path('bookofdreams_text_by_tag', { 'id': tag.id }) }}">{{ tag.name }}</a>
 					{% endfor %}
 				</td>
                 <td>
