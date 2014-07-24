@@ -18,6 +18,7 @@ use Doctrine\ORM\Tools\Pagination\Paginator;
  */
 class TagController extends Controller
 {
+	private $pageCount = 20;
 
     /**
      * Lists all Tag entities.
@@ -34,15 +35,15 @@ class TagController extends Controller
 		$em = $this->getDoctrine()->getManager();
 		$dql = "SELECT t FROM WindBookofdreamsBundle:Tag t";
 		$query = $em->createQuery($dql)
-			->setFirstResult($page * 20)
-			->setMaxResults(20);
+			->setFirstResult($page * $this->pageCount)
+			->setMaxResults($this->pageCount);
 
 		$paginator = new Paginator($query, $fetchJoinCollection = true);
 		$count = count($paginator);
 		return array(
 			'entities' => $paginator,
 			'page' => $page,
-			'count' => round($count / 20),
+			'count' => round($count / $this->pageCount),
 		);
     }
     /**

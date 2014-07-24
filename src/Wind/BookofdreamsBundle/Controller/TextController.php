@@ -19,6 +19,7 @@ use Doctrine\ORM\Tools\Pagination\Paginator;
  */
 class TextController extends Controller
 {
+	private $pageCount = 50;
 
 	/**
 	 * Lists all Text entities.
@@ -35,8 +36,8 @@ class TextController extends Controller
 		$em = $this->getDoctrine()->getManager();
 		$dql = "SELECT t FROM WindBookofdreamsBundle:Text t";
 		$query = $em->createQuery($dql)
-			->setFirstResult($page * 100)
-			->setMaxResults(100);
+			->setFirstResult($page * $this->pageCount)
+			->setMaxResults($this->pageCount);
 
 		$paginator = new Paginator($query, $fetchJoinCollection = true);
 		$count = count($paginator);
@@ -44,7 +45,7 @@ class TextController extends Controller
 			'entities' => $paginator,
 			'filter' => '',
 			'page' => $page,
-			'count' => round($count / 100),
+			'count' => round($count / $this->pageCount),
 		);
 	}
 

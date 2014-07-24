@@ -18,6 +18,7 @@ use Doctrine\ORM\Tools\Pagination\Paginator;
  */
 class WordController extends Controller
 {
+	private $pageCount = 20;
 
     /**
      * Lists all Word entities.
@@ -34,15 +35,15 @@ class WordController extends Controller
 		$em = $this->getDoctrine()->getManager();
 		$dql = "SELECT w FROM WindBookofdreamsBundle:Word w";
 		$query = $em->createQuery($dql)
-			->setFirstResult($page * 20)
-			->setMaxResults(20);
+			->setFirstResult($page * $this->pageCount)
+			->setMaxResults($this->pageCount);
 
 		$paginator = new Paginator($query, $fetchJoinCollection = true);
 		$count = count($paginator);
 		return array(
 			'entities' => $paginator,
 			'page' => $page,
-			'count' => round($count / 20),
+			'count' => round($count / $this->pageCount),
 		);
     }
     /**
