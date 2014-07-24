@@ -206,46 +206,47 @@ class TextController extends Controller
 
 	public function parseAction()
 	{
-		$values = array();
-		for ($i = 17; $i<= 29; $i++) {
-			$content = file_get_contents("http://www.prisnilos.su/{$i}.html");
-			preg_match_all('/\<a class="menu" href="(.*?)"\>/', $content, $values);
-			preg_match_all('|class="menu" href=".*?"\>(.*?)</|', $content, $words);
-			foreach ($values[1] as $key => $link) {
-				$linkArrays[] = array(
-					'word' => $words[1][$key],
-					'link' => $link,
-				);
-			}
-		}
-
-		foreach ($linkArrays as $linkArray) {
-			$word_content = file_get_contents('http://www.prisnilos.su' . $linkArray['link']);
-			preg_match_all('|<p align="justify">(.*)<|isU', $word_content, $word_values);
-			foreach ($word_values[1] as $textValue) {
-				$str = preg_replace('/\s+$/m','', $textValue);
-				if ($str != '' && $str != ' ') {
-					$em = $this->getDoctrine()->getManager();
-					$Text = new Text();
-					$WordOb = $em->getRepository('WindBookofdreamsBundle:Word');
-					$Word = $WordOb->findBy(array(
-						'name' => $linkArray['word']
-					));
-					if (empty($Word)) {
-						$Word = new Word();
-						$Word->setName($linkArray['word']);
-					} else {
-						$Word = $Word[0];
-					}
-					$Text->setText($textValue);
-					$Text->addWord($Word);
-					$em->persist($Word, true);
-					$em->persist($Text, true);
-					$em->flush();
-				}
-			}
-		}
-		return $linkArray['word'];
+//		$values = array();
+//		for ($i = 17; $i<= 29; $i++) {
+//			$content = file_get_contents("http://www.prisnilos.su/{$i}.html");
+//			preg_match_all('/\<a class="menu" href="(.*?)"\>/', $content, $values);
+//			preg_match_all('|class="menu" href=".*?"\>(.*?)</|', $content, $words);
+//			foreach ($values[1] as $key => $link) {
+//				$linkArrays[] = array(
+//					'word' => $words[1][$key],
+//					'link' => $link,
+//				);
+//			}
+//		}
+//
+//		foreach ($linkArrays as $linkArray) {
+//			$word_content = file_get_contents('http://www.prisnilos.su' . $linkArray['link']);
+//			preg_match_all('|<p align="justify">(.*)<|isU', $word_content, $word_values);
+//			foreach ($word_values[1] as $textValue) {
+//				$str = preg_replace('/\s+$/m','', $textValue);
+//				if ($str != '' && $str != ' ') {
+//					$em = $this->getDoctrine()->getManager();
+//					$Text = new Text();
+//					$WordOb = $em->getRepository('WindBookofdreamsBundle:Word');
+//					$Word = $WordOb->findBy(array(
+//						'name' => $linkArray['word']
+//					));
+//					if (empty($Word)) {
+//						$Word = new Word();
+//						$Word->setName($linkArray['word']);
+//					} else {
+//						$Word = $Word[0];
+//					}
+//					$Text->setText($textValue);
+//					$Text->addWord($Word);
+//					$em->persist($Word, true);
+//					$em->persist($Text, true);
+//					$em->flush();
+//				}
+//			}
+//		}
+//		return $linkArray['word'];
+		return 111;
 	}
 
     /**
