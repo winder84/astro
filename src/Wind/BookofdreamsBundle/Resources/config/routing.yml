@@ -3,8 +3,8 @@ wind_bookofdreams_homepage:
     defaults: { _controller: WindBookofdreamsBundle:Default:index }
 
 bookofdreams_word:
-    path:     /word
-    defaults: { _controller: WindBookofdreamsBundle:Word:index }
+    path:     /word/{page}
+    defaults: { _controller: WindBookofdreamsBundle:Word:index, page: 0 }
 
 bookofdreams_word_new:
     path:     /word/new
@@ -31,8 +31,8 @@ bookofdreams_word_update:
     defaults: { _controller: WindBookofdreamsBundle:Word:update }
 
 bookofdreams_tag:
-    path:     /tag
-    defaults: { _controller: WindBookofdreamsBundle:Tag:index }
+    path:     /tag/{page}
+    defaults: { _controller: WindBookofdreamsBundle:Tag:index, page: 0 }
 
 bookofdreams_tag_new:
     path:     /tag/new
@@ -59,8 +59,8 @@ bookofdreams_tag_update:
     defaults: { _controller: WindBookofdreamsBundle:Tag:update }
 
 bookofdreams_text:
-    path:     /text
-    defaults: { _controller: WindBookofdreamsBundle:Text:index }
+    path:     /text/{page}
+    defaults: { _controller: WindBookofdreamsBundle:Text:index, page: 0 }
 
 bookofdreams_text_new:
     path:     /text/new
@@ -93,3 +93,7 @@ bookofdreams_text_by_tag:
 bookofdreams_text_by_word:
     path:     /text/word/{id}
     defaults: { _controller: WindBookofdreamsBundle:Text:listbyword }
+
+bookofdreams_text_parse:
+    path:     /text/parse
+    defaults: { _controller: WindBookofdreamsBundle:Text:parse }

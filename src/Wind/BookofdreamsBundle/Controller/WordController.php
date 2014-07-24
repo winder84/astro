@@ -9,6 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Wind\BookofdreamsBundle\Entity\Word;
 use Wind\BookofdreamsBundle\Form\WordType;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 
 /**
  * Word controller.
@@ -25,15 +26,24 @@ class WordController extends Controller
      * @Method("GET")
      * @Template()
      */
-    public function indexAction()
+    public function indexAction($page)
     {
-        $em = $this->getDoctrine()->getManager();
+		if ($page < 0) {
+			$page = 0;
+		}
+		$em = $this->getDoctrine()->getManager();
+		$dql = "SELECT w FROM WindBookofdreamsBundle:Word w";
+		$query = $em->createQuery($dql)
+			->setFirstResult($page * 20)
+			->setMaxResults(20);
 
-        $entities = $em->getRepository('WindBookofdreamsBundle:Word')->findAll();
-
-        return array(
-            'entities' => $entities,
-        );
+		$paginator = new Paginator($query, $fetchJoinCollection = true);
+		$count = count($paginator);
+		return array(
+			'entities' => $paginator,
+			'page' => $page,
+			'count' => round($count / 20),
+		);
     }
     /**
      * Creates a new Word entity.

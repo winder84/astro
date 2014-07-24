@@ -1,7 +1,11 @@
 {% extends 'WindBookofdreamsBundle:Default:base.html.twig' %}
-
 {% block body -%}
-    <h1>Тексты</h1>
+	<div class="text-center">
+		<a style="display: inline-block; margin: 2px;" class="btn btn-primary btn-xs" href="{% if page >= 0 %}{{ path('bookofdreams_text', { 'page': page - 1 }) }}{% else %}{{ path('bookofdreams_text', { 'page': 0 }) }}{% endif %}">Назад</a>
+		Страница:{{ page + 1 }} (Всего:{{ count + 1}})
+		<a style="display: inline-block; margin: 2px;" class="btn btn-primary btn-xs" href="{% if page < count %}{{ path('bookofdreams_text', { 'page': page + 1 }) }}{% else %}{{ path('bookofdreams_text', { 'page': count }) }}{% endif %}">Вперед</a>
+	</div>
+    <h1 class="text-center">Тексты</h1>
 	{% if filter is not empty %}
 		<h4 style="padding: 5px;" class="bg-warning">Фильтр по "{{ filter }}"</h4>
 	{% endif %}
@@ -14,8 +18,6 @@
             <tr>
                 <th>Id</th>
                 <th>Текст</th>
-                <th>Слова</th>
-                <th>Тэги</th>
                 <th>Действия</th>
             </tr>
         </thead>
@@ -28,16 +30,6 @@
 						{{ entity.text|slice(0, 150) ~ '...' }}
 					</a>
 				</td>
-				<td>
-					{% for word in entity.words %}
-						<a class="btn btn-info btn-xs" style="margin: 2px;" href="{{ path('bookofdreams_text_by_word', { 'id': word.id }) }}">{{ word.name }}</a>
-					{% endfor %}
-				</td>
-				<td>
-					{% for tag in entity.tags %}
-						<a class="btn btn-info btn-xs" style="margin: 2px;" href="{{ path('bookofdreams_text_by_tag', { 'id': tag.id }) }}">{{ tag.name }}</a>
-					{% endfor %}
-				</td>
                 <td>
 					<a style="display: inline-block; margin: 2px;" class="btn btn-default btn-sm" href="{{ path('bookofdreams_text_show', { 'id': entity.id }) }}">Показать</a>
 					<a style="display: inline-block; margin: 2px;" class="btn btn-default btn-sm" href="{{ path('bookofdreams_text_edit', { 'id': entity.id }) }}">Редактировать</a>
@@ -49,4 +41,10 @@
 	<a class="btn btn-success btn-block" href="{{ path('bookofdreams_text_new') }}">
 		Добавить
 	</a>
+	<br />
+	<div class="text-center">
+		<a style="display: inline-block; margin: 2px;" class="btn btn-primary btn-xs" href="{% if page >= 0 %}{{ path('bookofdreams_text', { 'page': page - 1 }) }}{% else %}{{ path('bookofdreams_text', { 'page': 0 }) }}{% endif %}">Назад</a>
+		Страница:{{ page + 1 }} (Всего:{{ count + 1}})
+		<a style="display: inline-block; margin: 2px;" class="btn btn-primary btn-xs" href="{% if page < count %}{{ path('bookofdreams_text', { 'page': page + 1 }) }}{% else %}{{ path('bookofdreams_text', { 'page': count }) }}{% endif %}">Вперед</a>
+	</div>
     {% endblock %}

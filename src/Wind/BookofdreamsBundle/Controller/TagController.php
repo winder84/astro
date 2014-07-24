@@ -9,6 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Wind\BookofdreamsBundle\Entity\Tag;
 use Wind\BookofdreamsBundle\Form\TagType;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 
 /**
  * Tag controller.
@@ -25,15 +26,24 @@ class TagController extends Controller
      * @Method("GET")
      * @Template()
      */
-    public function indexAction()
+    public function indexAction($page)
     {
-        $em = $this->getDoctrine()->getManager();
+		if ($page < 0) {
+			$page = 0;
+		}
+		$em = $this->getDoctrine()->getManager();
+		$dql = "SELECT t FROM WindBookofdreamsBundle:Tag t";
+		$query = $em->createQuery($dql)
+			->setFirstResult($page * 20)
+			->setMaxResults(20);
 
-        $entities = $em->getRepository('WindBookofdreamsBundle:Tag')->findAll();
-
-        return array(
-            'entities' => $entities,
-        );
+		$paginator = new Paginator($query, $fetchJoinCollection = true);
+		$count = count($paginator);
+		return array(
+			'entities' => $paginator,
+			'page' => $page,
+			'count' => round($count / 20),
+		);
     }
     /**
      * Creates a new Tag entity.
