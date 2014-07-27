@@ -2,6 +2,7 @@
 
 namespace Wind\BookofdreamsBundle\Controller;
 
+use Monolog\Logger;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -207,6 +208,7 @@ class TextController extends Controller
 
 	public function parseAction()
 	{
+//		$logger = $this->get('logger');
 //		$values = array();
 //		for ($i = 17; $i<= 29; $i++) {
 //			$content = file_get_contents("http://www.prisnilos.su/{$i}.html");
@@ -240,6 +242,8 @@ class TextController extends Controller
 //					}
 //					$Text->setText($textValue);
 //					$Text->addWord($Word);
+//					$logger->info($Text->getText());
+//					$logger->info($Word);
 //					$em->persist($Word, true);
 //					$em->persist($Text, true);
 //					$em->flush();
